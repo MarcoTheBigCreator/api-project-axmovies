@@ -13,7 +13,11 @@ export default function Feed() {
 
     return (
         <>
-            <ReviewCard />
+            <div className='mx-20'>
+                <h3 className='text-3xl font-semibold tracking-tight border-b'>Reviews</h3>
+                <ReviewCard />
+            </div>
+
         </>
     )
 }
