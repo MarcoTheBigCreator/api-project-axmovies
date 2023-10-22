@@ -29,13 +29,13 @@ export const UserAuthForm = () => {
 
         if (response.ok === false){
             alert("Error al iniciar sesión")
-            setIsLoading(false)
             router.push("/")
+            setIsLoading(false)
             return
         }
         else{
-            setIsLoading(false)
             router.push("/feed")
+            setIsLoading(false)
             return
         }
 

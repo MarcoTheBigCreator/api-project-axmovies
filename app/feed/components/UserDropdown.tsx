@@ -7,15 +7,14 @@ import {
   import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuGroup,
+    // DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
   
-  export function UserNav() {
+  export function UserDropdown() {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -35,20 +34,13 @@ import {
               </p>
             </div>
           </DropdownMenuLabel>
-          {/* <DropdownMenuSeparator />
-          <DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          {/* <DropdownMenuGroup>
             <DropdownMenuItem>
               Profile
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              Billing
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              Settings
-            </DropdownMenuItem>
-            <DropdownMenuItem>New Team</DropdownMenuItem>
-          </DropdownMenuGroup> */}
-          <DropdownMenuSeparator />
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator /> */}
           <DropdownMenuItem>
             Log out
           </DropdownMenuItem>
