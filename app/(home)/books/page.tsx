@@ -1,15 +1,10 @@
-export default function Books (){
+import { BookCover } from './components/BookCover';
+export default function Books() {
     return (
         <>
-            <div className='mx-60'>
-                <div className='hidden flex-col md:flex'>
-                    <div>
-                        {/* <Navbar /> */}
-                    </div>
-                </div>
-                <div className='mt-10'>
-                    {/* {children} */}
-                </div>
+            <h3 className='text-3xl font-semibold tracking-tight'>Books</h3>
+            <div className='bg-background border-t'>
+                <BookCover />
             </div>
         </>
     )
