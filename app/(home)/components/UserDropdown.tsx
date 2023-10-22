@@ -49,6 +49,7 @@ export const UserDropdown = () => {
         <DropdownMenuGroup>
           <DropdownMenuItem onClick={onLogout}>
             Log out
+            <LogOut className="ml-2 h-4 w-4"/>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
