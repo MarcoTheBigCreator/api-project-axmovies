@@ -24,13 +24,15 @@ export function ReviewCard() {
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/1/1c/El_principito.jpg"
             alt="librofeo"
-            className="h-[230px] w-[150px] aspect-[3/4]" />
+            className="h-[230px] w-[180px] aspect-[3/4]" />
         </div>
         <div>
           <CardHeader className="grid grid-cols-2 items-start gap-4 space-y-0">
             <div className="space-y-2">
               <CardTitle className="text-3xl">Libro feo</CardTitle>
-              <CardDescription className="text-sm font-medium">Book's Author: Mario Alvarado</CardDescription>
+              <div className="flex space-x-1">
+                <CardDescription className="text-sm font-medium text-purple-500">Book's Author:</CardDescription> <CardDescription> Mario Alvarado</CardDescription>
+              </div>
               <Separator />
               <CardDescription className="text-md">
                 Es en mi opinión el libro más feo que pueda existir omegalul
