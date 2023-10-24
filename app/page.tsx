@@ -7,14 +7,14 @@ export default function AuthenticationPage() {
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
           <div className="absolute inset-0 img-bg" />
           <div className="relative z-20 flex items-center text-lg font-medium">
-            Axbooks
+            Axmovies
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
               <p className="text-lg">
-                &ldquo;Become a part of a vibrant and growing community of book lovers.&rdquo;
+                &ldquo;Become a part of a vibrant and growing community of movie lovers.&rdquo;
               </p>
-              <footer className="text-sm">Marco Rodríguez - CEO of Axbooks</footer>
+              <footer className="text-sm">Marco Rodríguez - CEO of Axmovies</footer>
             </blockquote>
           </div>
         </div>

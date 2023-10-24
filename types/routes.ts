@@ -1,4 +1,4 @@
-export interface Books {
+export interface Movies {
     id: number;
     title: string;
     author: string;

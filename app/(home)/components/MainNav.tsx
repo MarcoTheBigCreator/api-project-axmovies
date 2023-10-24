@@ -23,11 +23,11 @@ export function MainNav({
         Feed
       </Link>
       <Link
-        href="/books"
-        className={`font-medium text-sm ${pathname === "/books" ? "text-primary" : "text-muted-foreground"} transition-colors hover:text-primary`}
+        href="/movies"
+        className={`font-medium text-sm ${pathname === "/movies" ? "text-primary" : "text-muted-foreground"} transition-colors hover:text-primary`}
         
       >
-        Books
+        Movies
       </Link>
     </nav>
   )

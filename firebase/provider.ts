@@ -5,6 +5,7 @@ export const loginWithEmail = async (email: string, password: string) => {
   try {
     const resp = await signInWithEmailAndPassword(firebaseAuth, email, password);
     const { email: displayEmail } = resp.user;
+    console.log(resp.user);
     return {
       ok: true,
       email: displayEmail
@@ -18,6 +19,6 @@ export const loginWithEmail = async (email: string, password: string) => {
 }
 
 export const logout = async () => {
-  // console.log("logout");
+  console.log("logout");
   return await firebaseAuth.signOut();
 }

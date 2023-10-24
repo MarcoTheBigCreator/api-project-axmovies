@@ -19,24 +19,20 @@ import { Calendar } from "lucide-react"
 export function ReviewCard() {
   return (
     <>
-      <Card className="flex p-2 mt-4">
-        <div className="overflow-hidden rounded-md">
+      <Card className="flex flex-col-reverse lg:flex-row p-2 mt-4">
+        <div className="overflow-hidden 2xl:grid place-content-center w-1/4 2xl:w-1/3">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/1/1c/El_principito.jpg"
             alt="librofeo"
-            className="h-[230px] w-[180px] aspect-[3/4]" />
+            className="w-full aspect-[3/4] object-contain" />
         </div>
         <div>
-          <CardHeader className="grid grid-cols-2 items-start gap-4 space-y-0">
+          <CardHeader className="grid grid-cols-2 items-start gap-4">
             <div className="space-y-2">
-              <CardTitle className="text-3xl">Libro feo</CardTitle>
+              <CardTitle className="text-3xl">Película fea</CardTitle>
               <div className="flex space-x-1">
-                <CardDescription className="text-sm font-medium text-purple-500">Book's Author:</CardDescription> <CardDescription> Mario Alvarado</CardDescription>
+                <CardDescription className="text-sm font-medium text-purple-500">Director:</CardDescription> <CardDescription> Mario Alvarado</CardDescription>
               </div>
-              <Separator />
-              <CardDescription className="text-md">
-                Es en mi opinión el libro más feo que pueda existir omegalul
-              </CardDescription>
             </div>
             <div className="flex items-center pr-4 space-x-1 rounded-md bg-secondary text-secondary-foreground col-end-7">
               <Button variant="secondary" className="px-3 shadow-none">
@@ -47,8 +43,12 @@ export function ReviewCard() {
               </span>
             </div>
           </CardHeader>
-          <CardContent>
-            <div className="flex space-x-4 text-sm text-muted-foreground">
+          <CardContent className="space-y-2">
+            <Separator />
+            <CardDescription className="text-sm">
+              La película más feasasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa coño de la madre tengo sida
+            </CardDescription>
+            <div className="flex flex-col gap-1 mt-4 text-sm text-muted-foreground">
               <div className="flex items-center">
                 <CircleIcon className="mr-1 h-3 w-3 fill-purple-700 text-purple-700" />
                 Terror

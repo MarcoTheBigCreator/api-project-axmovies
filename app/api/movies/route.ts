@@ -5,8 +5,9 @@ export async function GET() {
   try {
     const supabase = createClient(process.env.SUPABASE_URL!,process.env.SUPABASE_KEY!);
     const { data } = await supabase
-      .from("books")
+      .from("movies")
       .select()
+      .order("id",{ascending:true})
     return Response.json(data);
   } catch (error) {
     console.log(error);
