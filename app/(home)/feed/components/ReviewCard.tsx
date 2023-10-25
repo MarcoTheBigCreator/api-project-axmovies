@@ -19,8 +19,8 @@ import { Calendar } from "lucide-react"
 export function ReviewCard() {
   return (
     <>
-      <Card className="flex flex-col-reverse lg:flex-row p-2 mt-4">
-        <div className="overflow-hidden 2xl:grid place-content-center w-1/4 2xl:w-1/3">
+      <Card className="flex flex-col-reverse lg:flex-row p-2 mt-4 hover:scale-105 transition-all cursor-pointer">
+        <div className="overflow-hidden 2xl:grid place-content-center w-1/4 2xl:w-1/5">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/1/1c/El_principito.jpg"
             alt="librofeo"
