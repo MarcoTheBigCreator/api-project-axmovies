@@ -32,7 +32,7 @@ export const MovieCover = () => {
         <>
             <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-2 lg:gap-4 mt-4">
                 {book.map((item) => (
-                    <div className="w-full space-y-3 hover:scale-105 transition-all" key={item.id}>
+                    <div className="w-full space-y-3 hover:scale-105 transition-all mb-3" key={item.id}>
                         <ContextMenu>
                             <ContextMenuTrigger>
                                 <div className="overflow-hidden rounded-md">
