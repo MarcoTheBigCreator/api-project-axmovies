@@ -37,25 +37,25 @@ export const MovieCover = () => {
                             <ContextMenuTrigger>
                                 <div className="overflow-hidden rounded-md">
                                     <img
-                                        src={item.link_image}
-                                        alt={item.title}
+                                        src={item.Link_image}
+                                        alt={item.Title}
                                         className="h-[320px] w-[280px] transition-all aspect-[3/4] object-cover" />
                                 </div>
                             </ContextMenuTrigger>
                         </ContextMenu>
                         <div className="space-y-1 text-sm">
                             <div className="container"></div>
-                            <h3 className="text-base font-semibold leading-none">{item.title}</h3>
-                            <p className="text-sm text-muted-foreground">{item.author}</p>
+                            <h3 className="text-base font-semibold leading-none">{item.Title}</h3>
+                            <p className="text-sm text-muted-foreground">{item.Director}</p>
                         </div>
                         <div className="text-sm text-muted-foreground">
                             <div className="flex items-center">
                                 <CircleIcon className="mr-1 h-3 w-3 fill-purple-700 text-purple-700" />
-                                {item.category}
+                                {item.Category}
                             </div>
                             <div className="flex items-center">
                                 <Calendar className="mr-1 h-3 w-3 text-purple-700" />
-                                {item.year}
+                                {item.Year}
                             </div>
                         </div>
                     </div>

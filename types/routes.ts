@@ -1,8 +1,12 @@
-export interface Movies {
+export interface MoviesForm{
+    Title: string;
+    Director: string;
+    Year: number;
+    Category: string;
+    Link_image: string;
+}
+
+export interface Movies extends MoviesForm {
     id: number;
-    title: string;
-    author: string;
-    year: string;
-    category: string;
-    link_image: string;
+    created_at: string;
 }
