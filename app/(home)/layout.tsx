@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import { Navbar } from './components/Navbar';
+
+export const metadata: Metadata = {
+    title: "Movies",
+    description: "Movies page",
+  }
 
 export default function layout({ children }: { children: React.ReactNode }) {
 
