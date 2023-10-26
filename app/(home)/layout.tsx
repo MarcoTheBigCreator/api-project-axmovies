@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
 import { Navbar } from './components/Navbar';
+import { Toaster } from '../../components/ui/toaster';
 
 export const metadata: Metadata = {
     title: "Movies",
     description: "Movies page",
-  }
+}
 
 export default function layout({ children }: { children: React.ReactNode }) {
 
@@ -17,9 +18,10 @@ export default function layout({ children }: { children: React.ReactNode }) {
                     </div>
                 </div>
                 <div className='mt-10'>
-                    {children}
+                    {children}               
                 </div>
             </div>
+            <Toaster />
         </>
 
 
