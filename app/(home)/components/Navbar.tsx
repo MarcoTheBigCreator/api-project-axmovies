@@ -3,7 +3,7 @@ import { MainNav } from './MainNav';
 import { Card } from '@/components/ui/card';
 
 
-export const  Navbar = () => {
+export const Navbar = () => {
 
     return (
         <>

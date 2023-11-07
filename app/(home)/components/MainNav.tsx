@@ -25,7 +25,7 @@ export function MainNav({
       <Link
         href="/movies"
         className={`font-medium text-sm ${pathname === "/movies" ? "text-primary" : "text-muted-foreground"} transition-colors hover:text-primary`}
-        
+
       >
         Movies
       </Link>

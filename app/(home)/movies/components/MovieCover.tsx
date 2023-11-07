@@ -18,7 +18,7 @@ import {
 
 export const MovieCover = () => {
 
-    const [book, setBook] = useState<Movies[]|[] >([])
+    const [book, setBook] = useState<Movies[] | []>([])
 
     useEffect(() => {
         fetch('/api/movies')
@@ -59,7 +59,7 @@ export const MovieCover = () => {
                             </div>
                         </div>
                     </div>
-                    ))}
+                ))}
             </div>
         </>
     )

@@ -9,7 +9,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from "next/navigation"
 
 const categories = [
-    'Thriller', 'Action', 'Comedy', 'Drama', 'Horror', 
+    'Thriller', 'Action', 'Comedy', 'Drama', 'Horror',
     'Romance', 'Sci-Fi', 'Fantasy', 'Animation', 'Family'
 ]
 

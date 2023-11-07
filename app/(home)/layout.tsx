@@ -18,7 +18,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
                     </div>
                 </div>
                 <div className='mt-10'>
-                    {children}               
+                    {children}
                 </div>
             </div>
             <Toaster />
