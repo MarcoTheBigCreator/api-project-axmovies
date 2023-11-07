@@ -78,7 +78,7 @@ export async function PATCH(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
 
-  const {id}: {id:number} = await request.json();
+  const { id }: { id: number } = await request.json();
 
   if (!id) {
     return Response.json({ error: 'Missing data' }, { status: 400 })
