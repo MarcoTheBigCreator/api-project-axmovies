@@ -76,6 +76,35 @@ export async function PATCH(request: NextRequest) {
 
 }
 
+export async function PUT(request: NextRequest) {
+
+  const dataIncoming: Movies = await request.json();
+
+  if (!dataIncoming.Title || !dataIncoming.Director || !dataIncoming.Year || !dataIncoming.Category || !dataIncoming.Link_image) {
+    return Response.json({ error: 'Missing data' }, { status: 400 })
+  }
+
+  try {
+    const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_KEY!);
+    const { data } = await supabase
+      .from('movies')
+      .update({
+        Title: `${dataIncoming.Title}`,
+        Director: `${dataIncoming.Director}`,
+        Year: `${dataIncoming.Year}`,
+        Category: `${dataIncoming.Category}`,
+        Link_image: `${dataIncoming.Link_image}`
+      })
+      .eq('id', `${dataIncoming.id}`)
+      .select()
+    return Response.json(data);
+  } catch (error) {
+    console.log(error);
+    return Response.json({ error: 'Something went wrong' }, { status: 500 })
+  }
+
+}
+
 export async function DELETE(request: NextRequest) {
 
   const { id }: { id: number } = await request.json();
@@ -97,4 +126,14 @@ export async function DELETE(request: NextRequest) {
     return Response.json({ error: 'Something went wrong' }, { status: 500 })
   }
 
+}
+
+export async function HEAD(request: NextRequest) {
+
+  return Response.json({ message: 'HEAD request' })
+}
+
+export async function OPTIONS(request: NextRequest) {
+
+  return Response.json({ message: 'OPTIONS request' })
 }
