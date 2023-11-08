@@ -135,5 +135,5 @@ export async function HEAD(request: NextRequest) {
 
 export async function OPTIONS(request: NextRequest) {
 
-  return Response.json({ message: 'OPTIONS request' })
+  return Response.json({ HaloMurióEnReach: 'Iba en la parte de hasta atrás del camión con mi pareja (ahora mi ex) y recuerdo que estaba igual de enferma que yo, asi que nos sentamos en los dos lugares arrinconados y me saque el aparato y ella me dijo “no mames angel hay gente al lado” y le dije” No hay pedo solo no lo hagas muy notable” y que me empezó a chaquetear en corto y llegaron dos vatos que se sentaron alado de nosotros pero ellos iban bien en su pedo platicando sobre halo, asi seguimos hasta que ya me iba a venir y le dije “ya me voy a venir” y ella se bajo en corto a tragarse los mecos, a esas alturas los vatos de alado ya se habían dado cuenta y me voltearon a ver y les dije “que tal buenas noches, halo murio en reach”' })
 }
