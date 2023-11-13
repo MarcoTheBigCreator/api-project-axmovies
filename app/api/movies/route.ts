@@ -128,12 +128,55 @@ export async function DELETE(request: NextRequest) {
 
 }
 
-export async function HEAD(request: NextRequest) {
-
-  return Response.json({ message: 'HEAD request' })
+export async function HEAD() {
+  return new Response(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'text/html',
+      'Access-Control-Allow-Methods': 'POST, GET, PUT, PATCH, DELETE, HEAD, OPTIONS, TRACE',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
+  })
 }
 
-export async function OPTIONS(request: NextRequest) {
+export async function OPTIONS() {
+  const asciiMeme = 
+    '⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣰⣇⠀⠀⠀⠀⠀⠀⣠⣴⠶⢤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⢀⣄⠀⠀⠀⠀⠀⡏⠘⣆⢀⣠⠞⠛⠛⠉⣀⣤⣤⣬⣉⡛⠛⠛⠲⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⣼⡏⠳⣄⠀⠀⢰⡇⠀⠸⡟⠷⣄⣀⣀⣀⣈⠛⠻⠾⢿⣿⣷⠀⠀⠀⠈⠙⠛⠛⠛⠦⣤⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⠸⡇⠀⠈⢳⡀⢸⡇⠀⠀⢿⠀⢀⣍⠉⠉⠉⠙⠶⣤⣄⣀⣀⣶⣦⣤⡀⠀⠀⠀⠀⠀⣬⣭⣉⠉⠛⠳⢦⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠹⡄⠀⠀⠙⣾⡃⠀⠀⢸⡔⠀⢻⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠻⢭⣉⣀⣀⠀⠀⠀⠈⢙⣛⣁⡀⠀⠀⠈⠙⣛⣛⠓⢶⣄⡀⠀⠀⠀⠀⠀⠀⠀\n' +
+    '⢴⡦⠤⠤⣤⣹⣆⠀⢈⣿⣇⠀⠀⢸⣷⣀⡾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠙⠲⣤⣀⣀⠛⠿⣽⣿⣶⣄⠈⠛⠿⢿⡦⠈⠙⠛⠛⢻⣿⣿⡆⠀\n' +
+    '⠈⠳⣄⡀⠀⠈⠛⢿⣻⣿⣿⠛⠛⠛⢻⣶⡦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠛⠶⣄⣉⠉⠀⠀⠀⠀⣀⣀⣤⠤⢶⡿⣹⠟⠀⠀⠀\n' +
+    '⠀⠀⠈⠙⠲⠤⣄⣠⣿⠈⠉⣴⠞⠶⠾⣿⣅⡀⠙⣲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⠞⠋⠀⠀⠀⠀⣠⡞⠁⢸⠏⠀⠀⠀⠀\n' +
+    '⣀⣤⠴⠖⠒⠚⠉⠩⣿⣠⣴⡏⠀⠀⠀⠀⠈⠻⣾⡿⠏⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠿⠿⣷⣄⡀⠀⠙⢿⣏⠀⠈⠉⠉⠉⠉⠀⠀\n' +
+    '⠉⠙⠓⠒⠶⠶⢖⣷⠿⣿⠋⢿⡄⠀⠀⠀⠀⠀⠀⠛⣦⣀⣽⣆⠀⠀⠀⠀⣀⣀⣤⡤⢤⣤⡤⠤⣤⣄⣀⣠⠞⠁⠀⠀⠀⢀⣤⣾⣿⣧⣤⢿⢠⣤⣤⣀⡀\n' +
+    '⠀⠀⠀⠀⣠⠴⠋⢁⣀⡽⣦⡴⡿⠷⣄⣀⡀⠀⠀⠀⢸⡿⠋⠘⡓⠒⠛⠻⣿⣇⣠⣤⣼⣿⣧⣄⣀⣾⡿⠛⠳⢤⣤⢤⡶⠛⠋⠉⠀⠀⠀⠀⠀⣀⣤⠾⠋\n' +
+    '⠀⠀⠀⠈⠛⠛⢻⡉⠁⠀⠈⠙⢦⣤⣤⣭⣉⣻⣿⡟⠉⠁⠐⣿⡷⠀⣤⠞⠋⠉⠁⠀⠀⠀⠀⠈⠉⠛⠳⣦⢠⣾⡿⠀⣻⣀⣀⣀⣤⣤⠶⣾⠋⠁⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠀⠀⢸⣷⣤⡀⠀⠐⡏⠀⠀⠀⠈⠉⠙⠛⠛⠿⠙⠳⣄⠀⠻⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡾⠉⢈⡟⠋⠉⠙⠛⠿⣽⣴⡟⠀⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠀⣾⡛⠉⣄⣷⠀⠀⠙⢦⣄⣀⣀⣀⣀⣠⡤⠖⠃⠀⠈⠳⣾⡿⠳⢤⣀⣀⣀⣀⣀⣠⣶⣯⠁⣠⠞⠛⢶⣶⢤⣤⣀⣀⣀⣈⣹⣦⣄⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠺⣏⣉⣉⣉⣼⡂⠀⠀⠀⢀⣈⣉⣉⣀⡀⠀⠀⠀⠀⠀⠀⠈⠙⠦⣤⣀⣹⣿⡏⠉⠁⣀⣸⠿⠿⣷⣄⡀⠀⠙⢿⣏⠀⠈⠉⠉⠉⠉⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠀⢿⣉⣉⣁⡼⠁⠀⠀⠈⠉⠉⣽⠉⠉⠉⡿⢲⠦⣄⡀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⢷⡀⠀⠹⣿⣿⣷⣦⣤⣙⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠀⠀⠈⣿⠁⠀⠀⠀⠀⠀⠠⡄⠉⠙⠒⠾⠡⣏⡀⠀⢹⠶⣄⠀⠀⠀⠀⢠⡞⠁⠀⣿⠀⢀⡼⠋⣸⣿⣛⣾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠀⠀⠀⣿⡀⠀⠀⠀⠀⠀⠀⠉⠓⠂⠐⠶⣄⠀⠉⠛⠋⠀⠘⠂⠀⠀⢠⡞⠁⠀⣾⣡⠴⠿⣿⡾⠁⠀⠀⠀⣠⣡⠀⠀⠉⠉⠉⠉⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠀⠀⠀⣿⣧⠤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠛⠁⠀⠀⠀⠀⠀⠘⢧⣴⠞⠁⠀⣾⣤⡀⢻⢿⣽⠏⠀⠀⠀⠀⣠⡞⠁⢸⠏⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠀⠀⠀⢻⡿⢧⠀⠈⠙⠲⡦⢤⣤⣤⡤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⣼⠟⠁⠀⠀⢸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
+    '⠀⠀⠀⠀⠀⠀⠀⣿⡿⢧⠀⠈⠙⠲⡦⢤⣤⣤⡤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⢿⣧⣀⣀⡾⠿⠿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\n'+
+    `Iba en la parte de hasta atrás del camión con mi pareja (ahora mi ex) y 
+    recuerdo que estaba igual de enferma que yo, asi que nos sentamos en los dos 
+    lugares arrinconados y me saque el aparato y ella me dijo “no mames angel hay 
+    gente al lado” y le dije” No hay pedo solo no lo hagas muy notable” y que me 
+    empezó a chaquetear en corto y llegaron dos vatos que se sentaron alado de 
+    nosotros pero ellos iban bien en su pedo platicando sobre halo, asi seguimos 
+    hasta que ya me iba a venir y le dije “ya me voy a venir” y ella se bajo en corto 
+    a tragarse los mecos, a esas alturas los vatos de alado ya se habían dado cuenta 
+    y me voltearon a ver y les dije “que tal buenas noches, halo murio en reach”`
 
-  return Response.json({ HaloMurióEnReach: 'Iba en la parte de hasta atrás del camión con mi pareja (ahora mi ex) y recuerdo que estaba igual de enferma que yo, asi que nos sentamos en los dos lugares arrinconados y me saque el aparato y ella me dijo “no mames angel hay gente al lado” y le dije” No hay pedo solo no lo hagas muy notable” y que me empezó a chaquetear en corto y llegaron dos vatos que se sentaron alado de nosotros pero ellos iban bien en su pedo platicando sobre halo, asi seguimos hasta que ya me iba a venir y le dije “ya me voy a venir” y ella se bajo en corto a tragarse los mecos, a esas alturas los vatos de alado ya se habían dado cuenta y me voltearon a ver y les dije “que tal buenas noches, halo murio en reach” Ah, y esta madre aguanta: POST, GET, PUT, PATCH, DELETE, HEAD, OPTIONS y TRACE' })
+  const lines = asciiMeme.split('\n');
+  const formattedString = lines.map(line => `${line}<br>`).join('');
+
+  return new Response(`<p>${formattedString}</p>`, {
+    headers: { 'Content-Type': 'text/html' }
+  });
 }
