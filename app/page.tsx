@@ -1,15 +1,16 @@
 'use client';
-import { UserAuthForm } from "@/app/components/UserAuthForm"
-import { useSession } from "next-auth/react"
+import { MovieCover } from './components/MovieCover';
+import { AddMovieSheet } from './components/AddMovieSheet';
+import { useSession } from 'next-auth/react';
+import { Navbar } from './components/Navbar';
 
-export default function AuthenticationPage() {
+export default function Movies() {
   const session = useSession({
-    required: false,
+    required: true,
     onUnauthenticated() {
       return {
         redirect: {
           destination: "/",
-          permanent: false,
         },
       }
     },
@@ -17,34 +18,25 @@ export default function AuthenticationPage() {
 
   return (
     <>
-      <div className="container relative hidden h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-        <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
-          <div className="absolute inset-0 img-bg" />
-          <div className="relative z-20 flex items-center text-lg font-medium">
-            Axmovies
-          </div>
-          <div className="relative z-20 mt-auto">
-            <blockquote className="space-y-2">
-              <p className="text-lg">
-                &ldquo;Become a part of a vibrant and growing community of movie lovers.&rdquo;
-              </p>
-              <footer className="text-sm">Marco Rodríguez - CEO of Axmovies</footer>
-            </blockquote>
+      <div className='mx-40'>
+        <div className='hidden flex-col md:flex'>
+          <div>
+            <Navbar />
           </div>
         </div>
-        <div className="lg:p-8">
-          <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-            <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">
-                LOGIN
-              </h1>
+        <div className='mt-10'>
+          <div className='2xl:mx-52'>
+            <div className='w-full flex flex-col md:flex-row md:justify-between md:items-center mb-4'>
+              <h3 className='text-3xl font-semibold tracking-tight'>Movies</h3>
+              <AddMovieSheet></AddMovieSheet>
             </div>
-            <UserAuthForm />
+            <div className='bg-background border-t'>
+              <MovieCover />
+            </div>
           </div>
         </div>
       </div>
     </>
   )
 }
-
-AuthenticationPage.requireAuth = false
+Movies.requireAuth = true

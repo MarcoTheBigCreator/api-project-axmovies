@@ -17,14 +17,8 @@ export function MainNav({
       {...props}
     >
       <Link
-        href="/feed"
-        className={`font-medium text-sm ${pathname === "/feed" ? "text-primary" : "text-muted-foreground"} transition-colors hover:text-primary`}
-      >
-        Feed
-      </Link>
-      <Link
-        href="/movies"
-        className={`font-medium text-sm ${pathname === "/movies" ? "text-primary" : "text-muted-foreground"} transition-colors hover:text-primary`}
+        href="/"
+        className={`font-medium text-sm ${pathname === "/" ? "text-primary" : "text-muted-foreground"} transition-colors hover:text-primary`}
 
       >
         Movies
