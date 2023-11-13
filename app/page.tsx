@@ -1,6 +1,20 @@
-import { UserAuthForm } from "@/app/auth/components/UserAuthForm"
+'use client';
+import { UserAuthForm } from "@/app/components/UserAuthForm"
+import { useSession } from "next-auth/react"
 
 export default function AuthenticationPage() {
+  const session = useSession({
+    required: false,
+    onUnauthenticated() {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+      }
+    },
+  })
+
   return (
     <>
       <div className="container relative hidden h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
@@ -32,3 +46,5 @@ export default function AuthenticationPage() {
     </>
   )
 }
+
+AuthenticationPage.requireAuth = false

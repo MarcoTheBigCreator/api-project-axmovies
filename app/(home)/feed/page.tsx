@@ -1,15 +1,27 @@
+'use client';
+import { useSession } from 'next-auth/react';
 import { ReviewCard } from './components/ReviewCard';
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import type { Metadata } from 'next'
+// import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-    title: "My Feed",
-    description: "Axmovies reviews of movies.",
-}
+// export const metadata: Metadata = {
+//     title: "My Feed",
+//     description: "Axmovies reviews of movies.",
+// }
 
 export default function Feed() {
+    const session = useSession({
+        required: true,
+        onUnauthenticated() {
+            return {
+                redirect: {
+                    destination: "/",
+                },
+            }
+        },
+    })
 
     return (
         <>
@@ -23,3 +35,5 @@ export default function Feed() {
         </>
     )
 }
+
+Feed.requireAuth = true

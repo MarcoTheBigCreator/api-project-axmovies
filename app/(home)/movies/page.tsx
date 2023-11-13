@@ -1,7 +1,20 @@
+'use client';
 import { MovieCover } from './components/MovieCover';
 import { AddMovieSheet } from './components/AddMovieSheet';
+import { useSession } from 'next-auth/react';
 
 export default function Movies() {
+    const session = useSession({
+        required: true,
+        onUnauthenticated() {
+            return {
+                redirect: {
+                    destination: "/",
+                },
+            }
+        },
+    })
+
     return (
         <>
             <div className='2xl:mx-52'>
@@ -16,3 +29,4 @@ export default function Movies() {
         </>
     )
 }
+Movies.requireAuth = true

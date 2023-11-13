@@ -1,7 +1,6 @@
 'use client';
-import { logout } from "@/firebase/provider"
+import { signOut} from "next-auth/react";
 import { LogOut } from "lucide-react"
-import { useRouter } from "next/navigation"
 import {
   Avatar,
   AvatarFallback,
@@ -17,16 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-
 export const UserDropdown = () => {
-
-  const router = useRouter();
-
-  const onLogout = async () => {
-    await logout();
-    return router.push('/');
-  }
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -47,7 +37,7 @@ export const UserDropdown = () => {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem onClick={onLogout}>
+          <DropdownMenuItem onClick={()=> signOut}>
             Log out
             <LogOut className="ml-2 h-4 w-4" />
           </DropdownMenuItem>
