@@ -67,9 +67,9 @@ export const UserAuthForm = () => {
                         />
                     </div>
                     {error && (
-                        <p className="text-red-500 text-center font-medium text-sm my-1">{error}</p>
+                        <p className="text-red-500 text-center font-medium text-sm mt-1">{error}</p>
                     )}
-                    <Button className={email === "" || password === "" ? 'disabled:opacity-80' : ''} disabled={!email || !password || isLoading} type="submit">
+                    <Button className={email === "" || password === "" ? 'disabled:opacity-80 mt-2' : 'mt-2'} disabled={!email || !password || isLoading} type="submit">
                         {isLoading && (
                             <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
                         )}
