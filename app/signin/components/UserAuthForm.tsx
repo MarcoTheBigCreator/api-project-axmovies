@@ -67,7 +67,7 @@ export const UserAuthForm = () => {
                         />
                     </div>
                     {error && (
-                        <p className="text-red-500 text-center font-normal my-1">{error}</p>
+                        <p className="text-red-500 text-center font-medium text-sm my-1">{error}</p>
                     )}
                     <Button className={email === "" || password === "" ? 'disabled:opacity-80' : ''} disabled={!email || !password || isLoading} type="submit">
                         {isLoading && (

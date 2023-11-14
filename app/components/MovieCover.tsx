@@ -9,6 +9,7 @@ import {
 
 
 import { Calendar } from "lucide-react"
+import { DropdownActions } from './DropdownActions';
 
 import {
     ContextMenu,
@@ -18,21 +19,21 @@ import {
 
 export const MovieCover = () => {
 
-    const [book, setBook] = useState<Movies[] | []>([])
+    const [movie, setMovie] = useState<Movies[] | []>([])
 
     useEffect(() => {
         fetch('/api/movies')
             .then(response => response.json())
-            .then(data => setBook(data));
+            .then(data => setMovie(data));
     }
         , []);
 
 
     return (
         <>
-            <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-2 lg:gap-4 mt-4">
-                {book.map((item) => (
-                    <div className="w-full space-y-3 hover:scale-105 transition-all mb-3" key={item.id}>
+            <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-2 lg:gap-4 mt-5">
+                {movie.map((item) => (
+                    <div className="w-full space-y-3 hover:scale-105 transition-all mb-5" key={item.id}>
                         <ContextMenu>
                             <ContextMenuTrigger>
                                 <div className="overflow-hidden rounded-md">
@@ -43,10 +44,14 @@ export const MovieCover = () => {
                                 </div>
                             </ContextMenuTrigger>
                         </ContextMenu>
-                        <div className="space-y-1 text-sm">
-                            <div className="container"></div>
-                            <h3 className="text-base font-semibold leading-none">{item.Title}</h3>
-                            <p className="text-sm text-muted-foreground">{item.Director}</p>
+                        <div className="grid grid-cols-5 items-start gap-4">
+                            <div className="col-span-4 space-y-1 text-sm">
+                                <h3 className="text-base font-semibold leading-none">{item.Title}</h3>
+                                <p className="text-sm text-muted-foreground">{item.Director}</p>
+                            </div>
+                            <div className="col-end-6">
+                                <DropdownActions />
+                            </div>
                         </div>
                         <div className="text-sm text-muted-foreground">
                             <div className="flex items-center">
