@@ -1,19 +1,7 @@
 'use client';
-import { UserAuthForm } from "@/app/login/components/UserAuthForm"
-import { useSession } from "next-auth/react"
+import { UserAuthForm } from "@/app/signin/components/UserAuthForm"
 
 export default function AuthenticationPage() {
-  const session = useSession({
-    required: false,
-    onUnauthenticated() {
-      return {
-        redirect: {
-          destination: "/",
-          permanent: false,
-        },
-      }
-    },
-  })
 
   return (
     <>
@@ -36,7 +24,7 @@ export default function AuthenticationPage() {
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
               <h1 className="text-2xl font-semibold tracking-tight">
-                LOGIN
+                Welcome to Axmovies!
               </h1>
             </div>
             <UserAuthForm />
@@ -46,5 +34,3 @@ export default function AuthenticationPage() {
     </>
   )
 }
-
-AuthenticationPage.requireAuth = false

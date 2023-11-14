@@ -1,4 +1,4 @@
-export interface MoviesForm{
+export interface MoviesForm {
     Title: string;
     Director: string;
     Year: number;

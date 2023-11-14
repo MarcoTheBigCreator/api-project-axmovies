@@ -5,14 +5,16 @@ import { auth } from '@/lib/config';
 
 export const authOptions = {
     pages: {
-        signIn: '/',
+
+        signIn: '/signin',
     },
     providers: [
         CredentialsProvider({
             name: 'Credentials',
             credentials: {},
             async authorize(credentials): Promise<any> {
-                return await signInWithEmailAndPassword(auth, (credentials as any).email || '', (credentials as any).password || '').then(userCredential => {
+                return await signInWithEmailAndPassword(auth, (credentials as any).email || '', (credentials as any).password || '')
+                    .then(userCredential => {
                         if (userCredential.user) {
                             return userCredential.user;
                         }
@@ -20,7 +22,6 @@ export const authOptions = {
                     })
                     .catch(error => {
                         console.log(error);
-                        return null;
                     })
             }
         })

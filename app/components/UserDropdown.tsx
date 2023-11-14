@@ -1,5 +1,5 @@
 'use client';
-import { signOut} from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { LogOut } from "lucide-react"
 import {
   Avatar,
@@ -37,7 +37,7 @@ export const UserDropdown = () => {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem onClick={()=> signOut}>
+          <DropdownMenuItem onClick={()=> signOut()}>
             Log out
             <LogOut className="ml-2 h-4 w-4" />
           </DropdownMenuItem>

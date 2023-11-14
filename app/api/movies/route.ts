@@ -141,7 +141,7 @@ export async function HEAD() {
 }
 
 export async function OPTIONS() {
-  const asciiMeme = 
+  const asciiMeme =
     '⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣰⣇⠀⠀⠀⠀⠀⠀⣠⣴⠶⢤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
     '⠀⠀⠀⢀⣄⠀⠀⠀⠀⠀⡏⠘⣆⢀⣠⠞⠛⠛⠉⣀⣤⣤⣬⣉⡛⠛⠛⠲⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
     '⠀⠀⠀⣼⡏⠳⣄⠀⠀⢰⡇⠀⠸⡟⠷⣄⣀⣀⣀⣈⠛⠻⠾⢿⣿⣷⠀⠀⠀⠈⠙⠛⠛⠛⠦⣤⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
@@ -162,7 +162,7 @@ export async function OPTIONS() {
     '⠀⠀⠀⠀⠀⠀⠀⣿⡀⠀⠀⠀⠀⠀⠀⠉⠓⠂⠐⠶⣄⠀⠉⠛⠋⠀⠘⠂⠀⠀⢠⡞⠁⠀⣾⣡⠴⠿⣿⡾⠁⠀⠀⠀⣠⣡⠀⠀⠉⠉⠉⠉⠀⠀⠀⠀\n' +
     '⠀⠀⠀⠀⠀⠀⠀⣿⣧⠤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠛⠁⠀⠀⠀⠀⠀⠘⢧⣴⠞⠁⠀⣾⣤⡀⢻⢿⣽⠏⠀⠀⠀⠀⣠⡞⠁⢸⠏⠀⠀⠀⠀\n' +
     '⠀⠀⠀⠀⠀⠀⠀⢻⡿⢧⠀⠈⠙⠲⡦⢤⣤⣤⡤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⣼⠟⠁⠀⠀⢸⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n' +
-    '⠀⠀⠀⠀⠀⠀⠀⣿⡿⢧⠀⠈⠙⠲⡦⢤⣤⣤⡤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⢿⣧⣀⣀⡾⠿⠿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\n'+
+    '⠀⠀⠀⠀⠀⠀⠀⣿⡿⢧⠀⠈⠙⠲⡦⢤⣤⣤⡤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⢿⣧⣀⣀⡾⠿⠿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\n' +
     `Iba en la parte de hasta atrás del camión con mi pareja (ahora mi ex) y 
     recuerdo que estaba igual de enferma que yo, asi que nos sentamos en los dos 
     lugares arrinconados y me saque el aparato y ella me dijo “no mames angel hay 

@@ -3,16 +3,13 @@ import { MovieCover } from './components/MovieCover';
 import { AddMovieSheet } from './components/AddMovieSheet';
 import { useSession } from 'next-auth/react';
 import { Navbar } from './components/Navbar';
+import { redirect } from 'next/navigation'
 
-export default function Movies() {
+export default function Home() {
   const session = useSession({
     required: true,
     onUnauthenticated() {
-      return {
-        redirect: {
-          destination: "/",
-        },
-      }
+      redirect('/signin');
     },
   })
 
@@ -39,4 +36,4 @@ export default function Movies() {
     </>
   )
 }
-Movies.requireAuth = true
+Home.requireAuth = true
