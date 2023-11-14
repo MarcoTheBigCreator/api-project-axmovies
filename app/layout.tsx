@@ -7,8 +7,8 @@ import { Toaster } from '../components/ui/toaster';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Login",
-  description: "Authentication page.",
+  title: "Axmovies",
+  description: "Axmovies is a movie streaming platform that allows you to watch movies for free.",
 }
 
 export default function RootLayout({
