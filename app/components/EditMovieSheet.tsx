@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectGroup, SelectTrigger, SelectValue, SelectI
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from "next/navigation"
 import { Movies } from "@/types/routes"
+import { Pencil } from 'lucide-react';
 
 const categories = [
     'Thriller', 'Action', 'Comedy', 'Drama', 'Horror',
@@ -109,8 +110,8 @@ export const EditMovieSheet = ({ item }: { item: Movies }) => {
         <Sheet>
 
             <SheetTrigger asChild>
-                <Button className="mt-3 md:mt-0">
-                    Update Movie
+                <Button className="mt-3 h-10 w-12 md:mt-0">
+                    <Pencil className="h-5 w-5"></Pencil>
                 </Button>
             </SheetTrigger>
 

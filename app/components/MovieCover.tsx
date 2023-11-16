@@ -44,7 +44,7 @@ export const MovieCover = () => {
                                 </div>
                             </ContextMenuTrigger>
                         </ContextMenu>
-                        <div className="grid grid-cols-5 items-start gap-4">
+                        <div className="grid grid-cols-1 items-start gap-4">
                             <div className="col-span-4 space-y-1 text-sm">
                                 <h3 className="text-base font-semibold leading-none">{item.Title}</h3>
                                 <p className="text-sm text-muted-foreground">{item.Director}</p>

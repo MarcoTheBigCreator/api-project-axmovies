@@ -42,8 +42,8 @@ export const DropdownActions = ({ item }: { item: Movies }) => {
                 <EditMovieSheet item={item} />
             </Button>
 
-            <Button size={"icon"} variant={"destructive"} onClick={onDeleteItem}>
-                <Trash className="h-4 w-4"/>
+            <Button size={"icon"} variant={"destructive"} onClick={onDeleteItem} className="w-12 h-10">
+                <Trash className="h-5 w-5"/>
             </Button>
         </div>
     )
