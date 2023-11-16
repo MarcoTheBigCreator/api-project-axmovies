@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Label } from "@/components/ui/label"
@@ -7,29 +7,81 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectGroup, SelectTrigger, SelectValue, SelectItem } from "@/components/ui/select"
 import { useToast } from "@/components/ui/use-toast"
 import { useRouter } from "next/navigation"
+import { Movies } from "@/types/routes"
 
 const categories = [
     'Thriller', 'Action', 'Comedy', 'Drama', 'Horror',
     'Romance', 'Sci-Fi', 'Fantasy', 'Animation', 'Family'
 ]
 
-export const AddMovieSheet = () => {
+export const EditMovieSheet = ({ item }: { item: Movies }) => {
 
     const [movie, setMovie] = useState({
-        Title: '',
-        Director: '',
-        Category: '',
-        Year: 1800,
-        Link_image: ''
+        id: item.id,
+        Title: item.Title ?? '',
+        Director: item.Director ?? '',
+        Category: item.Category ?? '',
+        Year: item.Year ?? 1800,
+        Link_image: item.Link_image ?? '',
     });
+
+    useEffect(() => {
+        setMovie({
+            id: item.id,
+            Title: item.Title ?? '',
+            Director: item.Director ?? '',
+            Category: item.Category ?? '',
+            Year: item.Year ?? 1800,
+            Link_image: item.Link_image ?? '',
+        })
+    }, [item])
 
     const { toast } = useToast()
     const router = useRouter()
 
     const onSendData = async () => {
-        if (movie.Title === '' || movie.Director === '' || movie.Category === '' || movie.Year === 1800 || movie.Link_image === '') return;
+        // if the data does not change, do not send a request
+        if (
+            movie.Title === item.Title && movie.Director === item.Director &&
+            movie.Category === item.Category &&
+            movie.Year === item.Year && movie.Link_image === item.Link_image
+        )
+            return;
+
+        // if all the data change, make a put request
+        if (
+            movie.Title !== item.Title && movie.Director !== item.Director &&
+            movie.Category !== item.Category &&
+            movie.Year !== item.Year && movie.Link_image !== item.Link_image
+        ) {
+            const response = await fetch('/api/movies', {
+                method: 'PUT',
+                body: JSON.stringify(movie),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                toast({
+                    title: 'Error',
+                    description: 'An error has occurred.',
+                    variant: 'destructive'
+                })
+                return;
+            }
+
+            toast({
+                title: 'Expense updated',
+                description: 'Expense has been updated successfully.',
+            })
+            router.refresh()
+            return;
+        }
+
+        // if only one data change, make a patch request
         const response = await fetch('/api/movies', {
-            method: 'POST',
+            method: 'PATCH',
             body: JSON.stringify(movie),
             headers: {
                 'Content-Type': 'application/json'
@@ -40,31 +92,32 @@ export const AddMovieSheet = () => {
             toast({
                 title: 'Error',
                 description: 'An error has occurred.',
+                variant: 'destructive'
             })
             return;
         }
 
-        setMovie({ Title: '', Director: '', Category: '', Year: 1800, Link_image: '' });
         toast({
-            title: 'Movie added',
-            description: 'Movie has been added successfully.',
+            title: 'Expense updated',
+            description: 'Expense has been updated successfully.',
         })
         router.refresh()
     }
+
 
     return (
         <Sheet>
 
             <SheetTrigger asChild>
                 <Button className="mt-3 md:mt-0">
-                    Add Movie
+                    Update Movie
                 </Button>
             </SheetTrigger>
 
             <SheetContent>
 
                 <SheetHeader>
-                    <SheetTitle>Add a movie</SheetTitle>
+                    <SheetTitle>Update a movie</SheetTitle>
                     <SheetDescription>
                         Fill out the form below to add a movie.
                     </SheetDescription>
@@ -131,7 +184,7 @@ export const AddMovieSheet = () => {
                     <Button
                         onClick={onSendData}
                     >
-                        Add Movie
+                        Update Movie
                     </Button>
                 </section>
 

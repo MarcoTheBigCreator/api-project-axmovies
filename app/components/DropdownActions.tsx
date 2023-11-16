@@ -1,41 +1,51 @@
 'use client'
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { MoreVertical, Pencil, Trash } from "lucide-react"
+import { useToast } from "@/components/ui/use-toast"
+import { Movies } from "@/types/routes"
+import { useRouter } from "next/navigation"
+import { EditMovieSheet } from "./EditMovieSheet"
+import { Trash } from "lucide-react"
 
-export const DropdownActions = () => {
+export const DropdownActions = ({ item }: { item: Movies }) => {
+
+    const { toast } = useToast()
+    const router = useRouter()
+
+    const onDeleteItem = async () => {
+        const res = await fetch('/api/movies', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: item.id })
+        })
+        if (!res.ok) { 
+            toast({
+                title: 'Error',
+                description: 'An error has occurred.',
+                variant: 'destructive'
+            })
+            return
+        }
+
+        toast({
+            title: `${item.Title} has been deleted`,
+            description: 'Expense has been deleted successfully.',
+        })
+
+        router.refresh()
+    }
 
     return (
-        <DropdownMenu>
+        <div className="flex justify-center items-center space-x-2">
+            <Button size={"icon"}>
+                <EditMovieSheet item={item} />
+            </Button>
 
-            <DropdownMenuTrigger asChild>
-                <Button size="icon" variant="outline">
-                    <MoreVertical className="h-4 w-4"/>
-                </Button>
-
-            </DropdownMenuTrigger>
-
-            <DropdownMenuContent className="w-56">
-
-                <DropdownMenuLabel>Actions</DropdownMenuLabel>
-
-                <DropdownMenuSeparator />
-
-                <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                        <Pencil className="mr-2 h-4 w-4"/>
-                        <span>Edit</span>
-                    </DropdownMenuItem> 
-
-                    <DropdownMenuItem>
-                        <Trash className="mr-2 h-4 w-4"/>
-                        <span>Delete</span>
-                    </DropdownMenuItem>     
-                </DropdownMenuGroup> 
-
-            </DropdownMenuContent>
-
-        </DropdownMenu>
+            <Button size={"icon"} variant={"destructive"} onClick={onDeleteItem}>
+                <Trash className="h-4 w-4"/>
+            </Button>
+        </div>
     )
 
 }

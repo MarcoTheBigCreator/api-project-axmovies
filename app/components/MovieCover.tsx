@@ -50,7 +50,7 @@ export const MovieCover = () => {
                                 <p className="text-sm text-muted-foreground">{item.Director}</p>
                             </div>
                             <div className="col-end-6">
-                                <DropdownActions />
+                                <DropdownActions item={item} />
                             </div>
                         </div>
                         <div className="text-sm text-muted-foreground">
