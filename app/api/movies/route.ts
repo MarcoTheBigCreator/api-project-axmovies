@@ -177,7 +177,6 @@ export async function OPTIONS() {
 
   return new Response(`<p>${formattedString}</p>`, {
     headers: {
-      'Content': 'text/html',
       'Access-Control-Allow-Methods': 'POST, GET, PUT, PATCH, DELETE, HEAD, OPTIONS, TRACE'
     }
   });
