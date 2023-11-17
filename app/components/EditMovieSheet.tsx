@@ -73,8 +73,8 @@ export const EditMovieSheet = ({ item }: { item: Movies }) => {
             }
 
             toast({
-                title: 'Expense updated',
-                description: 'Expense has been updated successfully.',
+                title: 'Movie updated',
+                description: 'Movie has been updated successfully.',
             })
             router.refresh()
             return;
@@ -99,8 +99,8 @@ export const EditMovieSheet = ({ item }: { item: Movies }) => {
         }
 
         toast({
-            title: 'Expense updated',
-            description: 'Expense has been updated successfully.',
+            title: 'Movie updated',
+            description: 'Movie has been updated successfully.',
         })
         router.refresh()
     }

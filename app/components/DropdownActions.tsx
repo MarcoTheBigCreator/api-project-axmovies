@@ -30,7 +30,7 @@ export const DropdownActions = ({ item }: { item: Movies }) => {
 
         toast({
             title: `${item.Title} has been deleted`,
-            description: 'Expense has been deleted successfully.',
+            description: 'Movie has been deleted successfully.',
         })
 
         router.refresh()
