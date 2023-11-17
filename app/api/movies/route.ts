@@ -1,4 +1,3 @@
-
 import { MoviesForm, Movies } from "@/types/routes";
 import { createClient } from "@supabase/supabase-js";
 import { type NextRequest } from 'next/server';
