@@ -176,6 +176,9 @@ export async function OPTIONS() {
   const formattedString = lines.map(line => `${line}<br>`).join('');
 
   return new Response(`<p>${formattedString}</p>`, {
-    headers: { 'Content-Type': 'text/html' }
+    headers: {
+      'Content': 'text/html',
+      'Access-Control-Allow-Methods': 'POST, GET, PUT, PATCH, DELETE, HEAD, OPTIONS, TRACE'
+    }
   });
 }
